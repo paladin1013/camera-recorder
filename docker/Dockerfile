@@ -29,7 +29,7 @@ RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}
 USER ${USERNAME}
 # Set the user's home directory as the working directory
 WORKDIR /home/${USERNAME}
-
+# Continue setting up the user's environment
 RUN cd ubuntu-config && \
     ./install_oh_my_zsh.sh && \
     ./config_oh_my_zsh.sh && \
