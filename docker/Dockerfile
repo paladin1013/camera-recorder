@@ -15,6 +15,8 @@ RUN useradd -m ${USERNAME} -p "$(openssl passwd -1 123)"
 RUN usermod -aG sudo ${USERNAME}
 # Give ownership of the user's home directory to the new user
 
+
+# Personal ubuntu configurations
 RUN apt-get install -y x11-apps
 RUN git clone https://github.com/paladin1013/ubuntu-config.git /home/${USERNAME}/ubuntu-config && \
     cd /home/${USERNAME}/ubuntu-config && \
@@ -47,9 +49,12 @@ RUN code-server --install-extension ms-python.python && \
 # Enable using `code` command in terminal to open file or attach new window to a folder
 RUN echo "export PATH=/home/${USERNAME}/.vscode-server/bin/default_version/bin/remote-cli:\$PATH" >> /home/${USERNAME}/.zshrc
 
-RUN mamba install opencv -y
+RUN /home/${USERNAME}/miniforge3/bin/mamba install -y opencv
 
+USER root
+RUN apt-get install -y sudo ffmpeg libsm6 libxext6
 
+USER ${USERNAME}
 
 SHELL ["/bin/zsh", "-ec"]
 CMD ["zsh"]
