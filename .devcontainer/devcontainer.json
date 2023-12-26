@@ -1,6 +1,6 @@
 {
     "name": "camera-recorder",
-    "dockerFile": "${localWorkspaceFolder}/docker/aarch64/Dockerfile",
+    "dockerFile": "${localWorkspaceFolder}/docker/Dockerfile",
     "runArgs": [
       "--volume=/tmp/.X11-unix/:/tmp/.X11-unix/", // For GUI display
     ],
