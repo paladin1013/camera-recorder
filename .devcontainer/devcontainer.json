@@ -1,6 +1,7 @@
 {
     "name": "camera-recorder",
-    "dockerFile": "${localWorkspaceFolder}/docker/Dockerfile",
+    // "dockerFile": "${localWorkspaceFolder}/docker/Dockerfile",
+    "dockerFile": "${localWorkspaceFolder}/docker/jetson/Dockerfile",
     "runArgs": [
       "--volume=/tmp/.X11-unix/:/tmp/.X11-unix/", // For GUI display
     ],
